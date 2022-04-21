@@ -134,3 +134,11 @@ input :focus {
   margin-right: 4px;
   margin-left: 4px;
 }
+
+.DeleteButton {
+  border-radius: 20px;
+}
+
+.Fshij {
+  color: orangered;
+}

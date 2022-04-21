@@ -3,11 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App2.css";
 import { addRow } from "../../../redux/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
-import useTable from "./utility";
+import useTable from "../utility";
 import TableFooter from "./TableFooter";
+import Alert from "./Alert";
 
 const KategoriteShpenzimeve = () => {
   const [kategoria2, setKategoria2] = useState("");
+
+  const [isShow, setIsShow] = useState(false);
 
   const [leket2, setLeket2] = useState("");
 
@@ -44,17 +47,35 @@ const KategoriteShpenzimeve = () => {
             <th>Kategoria</th>
             <th>Sasia e lekeve</th>
           </tr>
-          {slice.map((val, key) => {
-            return (
-              <tr key={key}>
-                <td> {val.kategoria}</td>
-                <td>{val.leket}</td>
-              </tr>
-            );
-          })}
+          {slice.map(
+            (
+              val,
+
+              key
+            ) => {
+              return (
+                <tr key={key}>
+                  <td> {val.kategoria}</td>
+                  <td>{val.leket}</td>
+                  <td>
+                    <button
+                      className="DeleteButton"
+                      type="button"
+                      onClick={() => setIsShow(!isShow)}
+                    >
+                      {" "}
+                      {isShow && <Alert val={val.kategoria} key={key} />}
+                      <div className="Fshij">Delete</div>
+                    </button>
+                  </td>
+                </tr>
+              );
+            }
+          )}
         </tbody>
       </table>
       <TableFooter range={range} slice={slice} setPage={setPage} page={page} />
+
       <div>
         <h2>Shto nje kategori</h2>
         <input

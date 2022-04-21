@@ -15,87 +15,87 @@ const initialState = [
     leket: "9999 Leke te reja",
   },
   {
-    id: 0,
+    id: 3,
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
   {
-    id: 1,
+    id: 4,
     kategoria: "Makina",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 5,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 0,
+    id: 6,
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
   {
-    id: 1,
+    id: 7,
     kategoria: "Makina",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 8,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 0,
+    id: 9,
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
   {
-    id: 1,
+    id: 10,
     kategoria: "Makina",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 11,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 12,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 0,
+    id: 13,
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
   {
-    id: 1,
+    id: 14,
     kategoria: "Makina",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 15,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 16,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
   {
-    id: 0,
+    id: 17,
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
   {
-    id: 1,
+    id: 18,
     kategoria: "Makina",
     leket: "9999 Leke te reja",
   },
   {
-    id: 2,
+    id: 19,
     kategoria: "Ushqime",
     leket: "9999 Leke te reja",
   },
@@ -107,6 +107,10 @@ export const tableReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.ADD_CATEGORY:
       return [...state, payload];
+
+    case ActionTypes.DELETE_CATEGORY:
+      state.splice(payload, 1);
+      return [...state];
     default:
       return state;
   }
