@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App2.css";
-import { addRow } from "../../../redux/actions/productActions";
+import { addRow, showAlert } from "../../../redux/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 import useTable from "../utility";
 import TableFooter from "./TableFooter";
@@ -9,8 +9,6 @@ import Alert from "./Alert";
 
 const KategoriteShpenzimeve = () => {
   const [kategoria2, setKategoria2] = useState("");
-
-  const [isShow, setIsShow] = useState(false);
 
   const [leket2, setLeket2] = useState("");
 
@@ -21,6 +19,10 @@ const KategoriteShpenzimeve = () => {
     leket: "",
   };
   let table = useSelector((state) => state.table);
+
+  let isShow = useSelector((state) => state.isShow);
+
+  const [celsi, setCelsi] = useState(0);
 
   const rowsPerPage = 5;
 
@@ -47,31 +49,27 @@ const KategoriteShpenzimeve = () => {
             <th>Kategoria</th>
             <th>Sasia e lekeve</th>
           </tr>
-          {slice.map(
-            (
-              val,
-
-              key
-            ) => {
-              return (
-                <tr key={key}>
-                  <td> {val.kategoria}</td>
-                  <td>{val.leket}</td>
-                  <td>
-                    <button
-                      className="DeleteButton"
-                      type="button"
-                      onClick={() => setIsShow(!isShow)}
-                    >
-                      {" "}
-                      {isShow && <Alert val={val.kategoria} key={key} />}
-                      <div className="Fshij">Delete</div>
-                    </button>
-                  </td>
-                </tr>
-              );
-            }
-          )}
+          {slice.map((val, key) => {
+            return (
+              <tr key={key}>
+                <td> {val.kategoria}</td>
+                <td>{val.leket}</td>
+                <td>
+                  <button
+                    key={key}
+                    className="DeleteButton"
+                    type="button"
+                    onClick={() => {
+                      dispatch(showAlert(true)), setCelsi(key);
+                    }}
+                  >
+                    <div className="Fshij">Delete</div>
+                  </button>
+                  <div>{isShow ? <Alert celsi={celsi} /> : <></>}</div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <TableFooter range={range} slice={slice} setPage={setPage} page={page} />

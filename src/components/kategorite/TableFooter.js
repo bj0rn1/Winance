@@ -23,7 +23,6 @@ const TableFooter = ({ range, setPage, page, slice }) => {
   };
   return (
     <div className="tableFooter">
-      {" "}
       <button className="button left" onClick={() => handleClickLeft()}>
         <ArrowBackIosNewIcon style={{ color: "white" }} />
       </button>

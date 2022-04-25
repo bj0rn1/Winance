@@ -7,3 +7,7 @@ export const addRow = (row) => {
 export const deleteRow = (key) => {
   return { type: ActionTypes.DELETE_CATEGORY, payload: key };
 };
+
+export const showAlert = (bool) => {
+  return { type: ActionTypes.SHOW_ALERT, payload: bool };
+};

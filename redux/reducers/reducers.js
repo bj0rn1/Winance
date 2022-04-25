@@ -1,3 +1,5 @@
+import { ActionTypes } from "../actionTypes";
+
 const initialState = [
   {
     id: 0,
@@ -34,73 +36,9 @@ const initialState = [
     kategoria: "Taksa",
     leket: "9999 Leke te reja",
   },
-  {
-    id: 7,
-    kategoria: "Makina",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 8,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 9,
-    kategoria: "Taksa",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 10,
-    kategoria: "Makina",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 11,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 12,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 13,
-    kategoria: "Taksa",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 14,
-    kategoria: "Makina",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 15,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 16,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 17,
-    kategoria: "Taksa",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 18,
-    kategoria: "Makina",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 19,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
 ];
-import { ActionTypes } from "../actionTypes";
+
+const initialAlertState = false;
 
 export const tableReducer = (state = initialState, { type, payload }) => {
   console.log("payload: ", payload);
@@ -109,8 +47,19 @@ export const tableReducer = (state = initialState, { type, payload }) => {
       return [...state, payload];
 
     case ActionTypes.DELETE_CATEGORY:
-      state.splice(payload, 1);
+      console.log(payload);
+      state.splice(payload.celsi, 1);
       return [...state];
+    default:
+      return state;
+  }
+};
+
+export const alertReducer = (state = initialAlertState, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SHOW_ALERT:
+      state = payload;
+      return state;
     default:
       return state;
   }

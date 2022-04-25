@@ -3,30 +3,34 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { useDispatch } from "react-redux";
 import { deleteRow } from "../../../redux/actions/productActions";
+import { showAlert } from "../../../redux/actions/productActions";
 
-const Alert = (val, key) => {
+const Alert = (celsi) => {
   const dispatch = useDispatch();
   const handleDelete = (key) => {
-    console.log(key);
     dispatch(deleteRow(key));
+    dispatch(showAlert(false));
   };
 
   confirmAlert({
     title: "Konfirmimi",
-    message: `A je i sigurt qe do te fshish kategorine '${val}'? `,
+    message: `A je i sigurt qe do te fshish kategorine ? `,
     buttons: [
       {
         label: "Po",
         onClick: () => {
-          handleDelete(key);
+          handleDelete(celsi);
         },
       },
       {
         label: "Jo",
-        onClick: () => {},
+        onClick: () => {
+          dispatch(showAlert(false));
+        },
       },
     ],
   });
+
   return <div className="container"></div>;
 };
 
