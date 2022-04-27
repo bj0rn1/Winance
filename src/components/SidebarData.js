@@ -23,6 +23,5 @@ export const SidebarData = [
   {
     title: "Shpenzimet",
     icon: <MoneyOffIcon />,
-    link: "/shpenzimet",
   },
 ];

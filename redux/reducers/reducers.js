@@ -4,37 +4,20 @@ const initialState = [
   {
     id: 0,
     kategoria: "Taksa",
-    leket: "9999 Leke te reja",
+    leket: 10000,
+    color: "#0033ad",
   },
   {
     id: 1,
     kategoria: "Makina",
-    leket: "9999 Leke te reja",
+    leket: 3000,
+    color: "#00ffbd",
   },
   {
     id: 2,
     kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 3,
-    kategoria: "Taksa",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 4,
-    kategoria: "Makina",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 5,
-    kategoria: "Ushqime",
-    leket: "9999 Leke te reja",
-  },
-  {
-    id: 6,
-    kategoria: "Taksa",
-    leket: "9999 Leke te reja",
+    leket: 8000,
+    color: "#F7931A",
   },
 ];
 

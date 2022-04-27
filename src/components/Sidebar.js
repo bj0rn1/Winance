@@ -3,7 +3,7 @@ import { SidebarData } from "./SidebarData";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import "../App.css";
+import "../sidebar.css";
 
 function Sidebar() {
   const location = useLocation();

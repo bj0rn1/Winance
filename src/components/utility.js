@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const calculateRange = (data, rowsPerPage) => {
   const range = [];
   const num = Math.ceil(data.length / rowsPerPage);
-  let i = 1;
+
   for (let i = 1; i <= num; i++) {
     range.push(i);
   }

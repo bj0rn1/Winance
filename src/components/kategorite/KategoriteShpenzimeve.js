@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useTable from "../utility";
 import TableFooter from "./TableFooter";
 import Alert from "./Alert";
+import Sidebar from "../Sidebar";
 
 const KategoriteShpenzimeve = () => {
   const [kategoria2, setKategoria2] = useState("");
@@ -14,27 +15,34 @@ const KategoriteShpenzimeve = () => {
 
   const dispatch = useDispatch();
 
-  const newRow = {
-    kategoria: "",
-    leket: "",
-  };
   let table = useSelector((state) => state.table);
-
   let isShow = useSelector((state) => state.isShow);
-
-  const [celsi, setCelsi] = useState(0);
-
   const rowsPerPage = 5;
 
+  const [celsi, setCelsi] = useState(0);
   const [page, setPage] = useState(1);
   const { slice, range } = useTable(table, page, rowsPerPage);
+  const [id, setID] = useState(3);
+
+  const protoColor = Math.floor(Math.random() * 16777215).toString(16);
+  const color = `#${protoColor}`;
+
+  const newRow = {
+    id: 0,
+    kategoria: "",
+    leket: 0,
+    color: "",
+  };
 
   const handlSubmit = () => {
     if (kategoria2 && leket2) {
+      newRow.id = id;
       newRow.kategoria = kategoria2;
-      newRow.leket = `${leket2} leke te reja`;
-      dispatch(addRow(newRow));
+      newRow.leket = leket2;
+      newRow.color = color;
 
+      dispatch(addRow(newRow));
+      setID(id + 1);
       setLeket2("");
       setKategoria2("");
       console.log(table);
@@ -43,6 +51,7 @@ const KategoriteShpenzimeve = () => {
 
   return (
     <div className="App">
+      <Sidebar />
       <table>
         <tbody>
           <tr>
@@ -75,7 +84,6 @@ const KategoriteShpenzimeve = () => {
       <TableFooter range={range} slice={slice} setPage={setPage} page={page} />
 
       <div>
-        <h2>Shto nje kategori</h2>
         <input
           autoComplete="off"
           className="input"
@@ -94,7 +102,7 @@ const KategoriteShpenzimeve = () => {
           name="leket"
           required="required"
           placeholder="Vendos sasine e lekeve..."
-          onChange={(event) => setLeket2(event.target.value)}
+          onChange={(event) => setLeket2(parseInt(event.target.value))}
           value={leket2}
         />
       </div>
