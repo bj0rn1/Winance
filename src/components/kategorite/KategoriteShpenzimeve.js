@@ -34,7 +34,7 @@ const KategoriteShpenzimeve = () => {
     color: "",
   };
 
-  const handlSubmit = () => {
+  const handleSubmit = () => {
     if (kategoria2 && leket2) {
       newRow.id = id;
       newRow.kategoria = kategoria2;
@@ -106,11 +106,10 @@ const KategoriteShpenzimeve = () => {
           value={leket2}
         />
       </div>
-      <div className="Shto">
-        <button type="button" className="btn btn-success" onClick={handlSubmit}>
-          Shto Kategori
-        </button>
-      </div>
+
+      <button type="button" className="Shto" onClick={handleSubmit}>
+        Shto Kategori
+      </button>
     </div>
   );
 };

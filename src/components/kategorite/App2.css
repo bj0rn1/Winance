@@ -13,6 +13,7 @@
 }
 
 .Container {
+  padding-top: 3%;
   font-size: 30px;
   font-family: Madefor, HelveticaNeueW01-Thin, HelveticaNeueW02-Thin,
     HelveticaNeueW10-35Thin, sans-serif;
@@ -30,7 +31,8 @@
 }
 
 table {
-  background-color: whitesmoke;
+  color: white;
+  background-color: #2d3749;
   position: absolute;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -51,9 +53,14 @@ td {
 }
 
 .Shto {
+  color: white;
+  background-color: #1773ff;
   position: absolute;
   top: 75%;
-  left: 73.3%;
+  left: 72%;
+  width: 8%;
+  height: 4%;
+  border-radius: 7px;
 }
 
 .input {
@@ -64,7 +71,7 @@ td {
   width: 40%;
   border-radius: 5px;
   position: absolute;
-  top: 71%;
+  top: 70%;
   left: 30%;
   background-color: transparent;
   outline: none;
@@ -77,7 +84,7 @@ input :focus {
 }
 
 .tableFooter {
-  background-color: whitesmoke;
+  background-color: #2d3749;
   padding: 8px 0px;
   width: 50%;
   position: absolute;
@@ -96,7 +103,7 @@ input :focus {
 
 .button {
   color: white;
-  background: grey;
+  background: #505c72;
   border: none;
   padding: 7px 14px;
   border-radius: 50%;
@@ -113,7 +120,7 @@ input :focus {
 
 .activeButton {
   color: white;
-  background: #198754;
+  background: #1773ff;
   border: none;
   padding: 7px 14px;
   border-radius: 50%;
@@ -134,11 +141,12 @@ input :focus {
 }
 
 .DeleteButton {
+  background-color: orangered;
   border-radius: 20px;
 }
 
 .Fshij {
-  color: orangered;
+  color: white;
 }
 
 .test {
@@ -171,4 +179,17 @@ input :focus {
   border-width: 1px;
   border-color: #d9b611;
   box-shadow: 0px 0px 15px red;
+}
+
+.forma {
+  border-radius: 20px;
+  padding: 1%;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  min-width: 500px;
+  height: 27%;
+  min-height: 270px;
+  background-color: whitesmoke;
 }
