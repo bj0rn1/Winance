@@ -11,3 +11,7 @@ export const deleteRow = (key) => {
 export const showAlert = (bool) => {
   return { type: ActionTypes.SHOW_ALERT, payload: bool };
 };
+
+export const addUserData = (user) => {
+  return { type: ActionTypes.INPUT_DATA, payload: user };
+};

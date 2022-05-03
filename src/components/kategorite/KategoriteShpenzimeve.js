@@ -72,7 +72,7 @@ const KategoriteShpenzimeve = () => {
                       dispatch(showAlert(true)), setCelsi(key);
                     }}
                   >
-                    <div className="Fshij">Delete</div>
+                    <div className="Fshij">Fshi </div>
                   </button>
                   <div>{isShow ? <Alert celsi={celsi} /> : <></>}</div>
                 </td>

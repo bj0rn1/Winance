@@ -9,7 +9,7 @@ const DonutChart = () => {
   let table = useSelector((state) => state.table);
 
   const [active, setActive] = useState(null);
-  const width = 450;
+  const width = 400;
   const half = width / 2;
   const total = table.reduce((n, { leket }) => n + leket, 0);
   return (

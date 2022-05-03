@@ -13,8 +13,8 @@ const Alert = (celsi) => {
   };
 
   confirmAlert({
-    title: "Konfirmimi",
-    message: `A je i sigurt qe do te fshish kategorine ? `,
+    title: "Konfirmoni",
+    message: `A jeni të sigurt që do të fshini kategorinë ? `,
     buttons: [
       {
         label: "Po",

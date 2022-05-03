@@ -2,13 +2,28 @@ import React from "react";
 import "../kategorite/App2.css";
 import Sidebar from "../Sidebar";
 import Form from "react-bootstrap/Form";
-import { Button } from "bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addUserData } from "../../../redux/actions/productActions";
 
 const HomePage = () => {
+  const teArdhuratInput = React.createRef();
+  const limitiInput = React.createRef();
+
+  const defaultUserData = {
+    teArdhurat: 0,
+    limiti: 0,
+  };
+
+  const dispatch = useDispatch();
+  let userData = useSelector((state) => state.userData);
+
   function handleSubmit(e) {
     e.preventDefault();
-    const { username, password } = e.target.elements;
-    console.log({ username: username.value, password: password.value });
+    (defaultUserData.teArdhurat = teArdhuratInput.current.value),
+      (defaultUserData.limiti = limitiInput.current.value);
+    dispatch(addUserData(defaultUserData));
+    (defaultUserData.teArdhurat = 0), (defaultUserData.limiti = 0);
+    console.log(userData);
   }
 
   return (
@@ -29,14 +44,24 @@ const HomePage = () => {
               Të ardhurat tuaja mujore:
               <Form.Text className="text-muted"> (Lekë të reja)</Form.Text>
             </Form.Label>
-            <Form.Control type="number" placeholder="" autoComplete="off" />
+            <Form.Control
+              type="number"
+              placeholder=""
+              autoComplete="off"
+              ref={teArdhuratInput}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>
               Limiti që doni të shpenzoni:
               <Form.Text className="text-muted">( Nëse keni )</Form.Text>
             </Form.Label>
-            <Form.Control type="number" placeholder="" autoComplete="off" />
+            <Form.Control
+              type="number"
+              placeholder=""
+              autoComplete="off"
+              ref={limitiInput}
+            />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
@@ -44,11 +69,7 @@ const HomePage = () => {
               label="Më lajmëro kur kalohet limiti "
             />
           </Form.Group>
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={handleSubmit}
-          >
+          <button type="button" className="butoniVazhdo" onClick={handleSubmit}>
             Vazhdo
           </button>
         </Form>

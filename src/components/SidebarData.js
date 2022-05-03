@@ -2,7 +2,7 @@ import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import ClassRoundedIcon from "@mui/icons-material/ClassRounded";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import MoneyOffIcon from "@mui/icons-material/MoneyOff";
+import SavingsIcon from "@mui/icons-material/Savings";
 
 export const SidebarData = [
   {
@@ -21,7 +21,7 @@ export const SidebarData = [
     link: "/teardhurat",
   },
   {
-    title: "Shpenzimet",
-    icon: <MoneyOffIcon />,
+    title: "Kursimet",
+    icon: <SavingsIcon />,
   },
 ];
