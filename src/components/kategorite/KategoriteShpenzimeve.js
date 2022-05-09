@@ -22,7 +22,7 @@ const KategoriteShpenzimeve = () => {
   const [celsi, setCelsi] = useState(0);
   const [page, setPage] = useState(1);
   const { slice, range } = useTable(table, page, rowsPerPage);
-  const [id, setID] = useState(3);
+  const [id, setID] = useState(4);
 
   const protoColor = Math.floor(Math.random() * 16777215).toString(16);
   const color = `#${protoColor}`;

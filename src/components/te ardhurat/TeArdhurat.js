@@ -26,7 +26,7 @@ const TeArdhurat = () => {
       <div className="chartContainer">
         Shpenzimet tuaja
         <div className="piePosition">
-          <DonutChart />
+          <DonutChart teArdhurat={userData.teArdhurat} />
         </div>
       </div>
     </>

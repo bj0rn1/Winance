@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "../kategorite/App2.css";
 import Sidebar from "../Sidebar";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserData } from "../../../redux/actions/productActions";
+import { useHistory } from "react-router-dom";
 
 const HomePage = () => {
-  const teArdhuratInput = React.createRef();
-  const limitiInput = React.createRef();
+  let teArdhuratInput = React.createRef();
+  let limitiInput = React.createRef();
 
   const defaultUserData = {
     teArdhurat: 0,
     limiti: 0,
   };
 
+  let [error, setError] = useState("");
+
   const dispatch = useDispatch();
+  let history = useHistory();
   let userData = useSelector((state) => state.userData);
 
   function handleSubmit(e) {
     e.preventDefault();
     (defaultUserData.teArdhurat = teArdhuratInput.current.value),
       (defaultUserData.limiti = limitiInput.current.value);
+    if (defaultUserData.limiti > defaultUserData.teArdhurat) {
+      defaultUserData.limiti = defaultUserData.teArdhurat;
+    }
     dispatch(addUserData(defaultUserData));
     (defaultUserData.teArdhurat = 0), (defaultUserData.limiti = 0);
     console.log(userData);
+    history.push("/kategorite");
   }
 
   return (
@@ -61,7 +69,8 @@ const HomePage = () => {
               placeholder=""
               autoComplete="off"
               ref={limitiInput}
-            />
+            />{" "}
+            {error != "" && <span style={{ color: "red" }}>{error}</span>}
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check

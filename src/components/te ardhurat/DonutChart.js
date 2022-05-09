@@ -1,17 +1,30 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Pie } from "@visx/shape";
 import { Group } from "@visx/group";
 import { Text } from "@visx/text";
-
-const DonutChart = () => {
+const DonutChart = (teArdhurat) => {
   let table = useSelector((state) => state.table);
 
   const [active, setActive] = useState(null);
+  const [total, setTotal] = useState(0);
   const width = 400;
   const half = width / 2;
-  const total = table.reduce((n, { leket }) => n + leket, 0);
+
+  const teMbetura = teArdhurat.teArdhurat - total;
+  let secondTable = [...table];
+
+  useEffect(() => {
+    table[0].leket = teMbetura;
+    setTotal(
+      table.slice(1, table.length).reduce((n, { leket }) => {
+        return n + leket;
+      }, 0)
+    );
+    console.log(table.slice(1, table.length));
+  }, []);
+
   return (
     <main>
       <svg width={width} height={width}>

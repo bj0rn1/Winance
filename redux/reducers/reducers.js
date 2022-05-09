@@ -1,20 +1,21 @@
 import { ActionTypes } from "../actionTypes";
 
 const initialState = [
+  { id: 0, kategoria: "Te mbetura", leket: 0, color: "white" },
   {
-    id: 0,
+    id: 1,
     kategoria: "Taksa",
     leket: 10000,
     color: "#0033ad",
   },
   {
-    id: 1,
+    id: 2,
     kategoria: "Makina",
     leket: 3000,
     color: "#00ffbd",
   },
   {
-    id: 2,
+    id: 3,
     kategoria: "Ushqime",
     leket: 8000,
     color: "#F7931A",
