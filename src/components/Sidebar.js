@@ -8,7 +8,6 @@ import "../sidebar.css";
 function Sidebar() {
   const location = useLocation();
   let history = useHistory();
-  console.log(location.pathname);
   return (
     <div className="Sidebar">
       <div className="Profili">

@@ -76,7 +76,7 @@ const DonutChart = (teArdhurat) => {
               </Text>
 
               <Text textAnchor="middle" fill="#aaa" fontSize={20} dy={20}>
-                {`${table.length} kategori`}
+                {`${table.length - 1} kategori`}
               </Text>
             </>
           )}

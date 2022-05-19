@@ -15,14 +15,27 @@ const KategoriteShpenzimeve = () => {
 
   const dispatch = useDispatch();
 
-  let table = useSelector((state) => state.table);
+  let bigTable = useSelector((state) => state.table);
+  let table = Array.from(bigTable);
+
+  function tableShift(tabela) {
+    let x = 0;
+    if (x == 0) {
+      tabela.shift();
+      x = 1;
+    } else {
+      console.log(0);
+    }
+  }
+  tableShift(table);
+
   let isShow = useSelector((state) => state.isShow);
   const rowsPerPage = 5;
 
   const [celsi, setCelsi] = useState(0);
   const [page, setPage] = useState(1);
   const { slice, range } = useTable(table, page, rowsPerPage);
-  const [id, setID] = useState(4);
+  const [id, setID] = useState(1);
 
   const protoColor = Math.floor(Math.random() * 16777215).toString(16);
   const color = `#${protoColor}`;
@@ -51,7 +64,8 @@ const KategoriteShpenzimeve = () => {
 
   return (
     <div className="App">
-      <Sidebar />
+      {<Sidebar />}
+
       <table>
         <tbody>
           <tr>

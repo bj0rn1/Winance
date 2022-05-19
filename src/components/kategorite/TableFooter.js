@@ -12,13 +12,11 @@ const TableFooter = ({ range, setPage, page, slice }) => {
   const handleClickLeft = () => {
     if (page - 1 != 0) {
       setPage(page - 1);
-      console.log(page);
     }
   };
   const handleClickRight = () => {
     if (page in range) {
       setPage(page + 1);
-      console.log(page);
     }
   };
   return (

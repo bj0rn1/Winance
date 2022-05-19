@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addUserData } from "../../../redux/actions/productActions";
 import { useHistory } from "react-router-dom";
+import "./butoni.css";
 
 const HomePage = () => {
   let teArdhuratInput = React.createRef();
@@ -15,28 +16,34 @@ const HomePage = () => {
     limiti: 0,
   };
 
-  let [error, setError] = useState("");
+  let error = "";
+  let showSB = false;
 
   const dispatch = useDispatch();
   let history = useHistory();
   let userData = useSelector((state) => state.userData);
 
   function handleSubmit(e) {
-    e.preventDefault();
     (defaultUserData.teArdhurat = teArdhuratInput.current.value),
       (defaultUserData.limiti = limitiInput.current.value);
-    if (defaultUserData.limiti > defaultUserData.teArdhurat) {
-      defaultUserData.limiti = defaultUserData.teArdhurat;
+    if (defaultUserData.teArdhurat > 0) {
+      showSB = true;
+      e.preventDefault();
+
+      if (defaultUserData.limiti > defaultUserData.teArdhurat) {
+        defaultUserData.limiti = defaultUserData.teArdhurat;
+      }
+      dispatch(addUserData(defaultUserData));
+      (defaultUserData.teArdhurat = 0), (defaultUserData.limiti = 0);
+      console.log(userData);
+
+      history.push("/kategorite");
     }
-    dispatch(addUserData(defaultUserData));
-    (defaultUserData.teArdhurat = 0), (defaultUserData.limiti = 0);
-    console.log(userData);
-    history.push("/kategorite");
   }
 
   return (
     <>
-      <Sidebar />
+      {showSB ? <Sidebar /> : <></>}
       <div className="Container">Vështirësi në llogaritë ekonomike?</div>
       <div className="Container" style={{ left: "46%" }}>
         Winance ju ndihmon të menaxhoni shpenzimet dhe kursimet tuaja!
@@ -56,6 +63,7 @@ const HomePage = () => {
               type="number"
               placeholder=""
               autoComplete="off"
+              required="required"
               ref={teArdhuratInput}
             />
           </Form.Group>
@@ -68,6 +76,7 @@ const HomePage = () => {
               type="number"
               placeholder=""
               autoComplete="off"
+              required="required"
               ref={limitiInput}
             />{" "}
             {error != "" && <span style={{ color: "red" }}>{error}</span>}
@@ -78,9 +87,21 @@ const HomePage = () => {
               label="Më lajmëro kur kalohet limiti "
             />
           </Form.Group>
-          <button type="button" className="butoniVazhdo" onClick={handleSubmit}>
-            Vazhdo
-          </button>
+
+          <a
+            aria-label="Jam gati"
+            className="h-button centered"
+            data-text=" Jam gati"
+            href="#"
+            onClick={handleSubmit}
+          >
+            <span>V</span>
+            <span>a</span>
+            <span>z</span>
+            <span>h</span>
+            <span>d</span>
+            <span>o</span>
+          </a>
         </Form>
       </div>
     </>
